@@ -1,0 +1,26 @@
+#!/bin/bash
+echo "Downloading lastest stable release of yaru theme from launchpad..."
+wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-gnome-shell_18.10.6_all.deb"
+wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-gtk_18.10.6_all.deb"
+wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-icon_18.10.6_all.deb"
+wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-sound_18.10.6_all.deb"
+echo "Starting yaru-theme packages installation and configuration..."
+sudo apt install ./yaru-theme-gnome-shell_18.10.6_all.deb ./yaru-theme-gtk_18.10.6_all.deb ./yaru-theme-icon_18.10.6_all.deb ./yaru-theme-sound_18.10.6_all.deb
+sudo mv /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css.bak
+sudo mv /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css.bak
+sudo mv /usr/share/gnome-shell/modes/ubuntu.json /usr/share/gnome-shell/modes/ubuntu.json.bak
+sudo mv /usr/share/gnome-shell/theme/ubuntu-high-contrast.css /usr/share/gnome-shell/theme/ubuntu-high-contrast.css.bak
+sudo ln -s /usr/share/gnome-shell/theme/Yaru/gnome-shell.css /usr/share/gnome-shell/theme/ubuntu.css
+sudo ln -s /usr/share/gnome-shell/theme/Yaru/gnome-shell-high-contrast.css /usr/share/gnome-shell/theme/ubuntu-high-contrast.css
+sudo ln -s /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/yaru.css /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css
+sudo ln -s /usr/share/gnome-shell/modes/yaru.json /usr/share/gnome-shell/modes/ubuntu.json
+sudo gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
+sudo gsettings set org.gnome.desktop.interface icon-theme 'Yaru'
+sudo gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
+sudo gsettings set org.gnome.desktop.sound theme-name 'Yaru'
+echo "Removing deb packages..."
+rm yaru-theme-gnome-shell_18.10.6_all.deb
+rm yaru-theme-gtk_18.10.6_all.deb
+rm yaru-theme-icon_18.10.6_all.deb
+rm yaru-theme-sound_18.10.6_all.deb
+echo "A reboot is required to finish the configuration."
