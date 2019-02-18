@@ -14,6 +14,7 @@ sudo ln -s /usr/share/gnome-shell/theme/Yaru/gnome-shell.css /usr/share/gnome-sh
 sudo ln -s /usr/share/gnome-shell/theme/Yaru/gnome-shell-high-contrast.css /usr/share/gnome-shell/theme/ubuntu-high-contrast.css
 sudo ln -s /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/yaru.css /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css
 sudo ln -s /usr/share/gnome-shell/modes/yaru.json /usr/share/gnome-shell/modes/ubuntu.json
+sudo cp data/yaru.css /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/yaru.css
 sudo gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
 sudo gsettings set org.gnome.desktop.interface icon-theme 'Yaru'
 sudo gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
