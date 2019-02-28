@@ -1,10 +1,10 @@
 #!/bin/bash
-echo "Downloading lastest stable release of yaru theme from launchpad..."
-YARU_THEME_VERSION="18.10.6_all"
-wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-gnome-shell_$YARU_THEME_VERSION.deb"
-wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-gtk_$YARU_THEME_VERSION.deb"
-wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-icon_$YARU_THEME_VERSION.deb"
-wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-sound_$YARU_THEME_VERSION.deb"
+source data/config.sh
+echo "Downloading lastest stable release of yaru theme from fr.archive.ubuntu.com..."
+wget "http://fr.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-gnome-shell_$YARU_THEME_VERSION.deb"
+wget "http://fr.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-gtk_$YARU_THEME_VERSION.deb"
+wget "http://fr.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-icon_$YARU_THEME_VERSION.deb"
+wget "http://fr.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-sound_$YARU_THEME_VERSION.deb"
 echo "Starting yaru-theme packages installation and configuration..."
 sudo apt install ./yaru-theme-gnome-shell_$YARU_THEME_VERSION.deb ./yaru-theme-gtk_$YARU_THEME_VERSION.deb ./yaru-theme-icon_$YARU_THEME_VERSION.deb ./yaru-theme-sound_$YARU_THEME_VERSION.deb
 sudo mv /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css.bak

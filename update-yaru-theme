@@ -1,0 +1,9 @@
+#!/bin/bash
+source data/config.sh
+INSTALLED_VERSION=$(apt-cache show yaru-theme-gnome-shell | grep "Version: " | sed -e 's/\Version: //g')
+if [[ $INSTALLED_VERSION != $(echo $YARU_THEME_VERSION | sed -e 's/\_all//g') ]]; then
+  ./remove-yaru-theme
+  ./install-yaru-theme
+else
+  echo "You have the lastest stable release of yaru theme"
+fi
