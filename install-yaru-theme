@@ -1,9 +1,10 @@
 #!/bin/bash
 echo "Downloading lastest stable release of yaru theme from launchpad..."
-wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-gnome-shell_18.10.6_all.deb"
-wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-gtk_18.10.6_all.deb"
-wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-icon_18.10.6_all.deb"
-wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-sound_18.10.6_all.deb"
+YARU_THEME_VERSION="18.10.6_all"
+wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-gnome-shell_$YARU_THEME_VERSION.deb"
+wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-gtk_$YARU_THEME_VERSION.deb"
+wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-icon_$YARU_THEME_VERSION.deb"
+wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-sound_$YARU_THEME_VERSION.deb"
 echo "Starting yaru-theme packages installation and configuration..."
 sudo apt install ./yaru-theme-gnome-shell_18.10.6_all.deb ./yaru-theme-gtk_18.10.6_all.deb ./yaru-theme-icon_18.10.6_all.deb ./yaru-theme-sound_18.10.6_all.deb
 sudo mv /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css.bak
@@ -20,9 +21,9 @@ gsettings set org.gnome.desktop.interface icon-theme 'Yaru'
 gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
 gsettings set org.gnome.desktop.sound theme-name 'Yaru'
 echo "Removing deb packages..."
-rm yaru-theme-gnome-shell_18.10.6_all.deb
-rm yaru-theme-gtk_18.10.6_all.deb
-rm yaru-theme-icon_18.10.6_all.deb
-rm yaru-theme-sound_18.10.6_all.deb
+rm "yaru-theme-gnome-shell_$YARU_THEME_VERSION.deb"
+rm "yaru-theme-gtk_$YARU_THEME_VERSION.deb"
+rm "yaru-theme-icon_$YARU_THEME_VERSION.deb"
+rm "yaru-theme-sound_$YARU_THEME_VERSION.deb"
 echo "Gnome Shell is restarting... Please wait."
 gnome-shell --replace&
