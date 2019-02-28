@@ -4,7 +4,7 @@ function __install_yaru_theme() {
     echo "Yaru theme is already installed !"
     exit 1
   fi
-  if [[ $(ls | grep tmp | wc -l) = 0 ]]; then
+  if [[ ! -d "tmp" ]]; then
     mkdir tmp
   fi
   echo "Starting yaru-theme packages installation and configuration..."
