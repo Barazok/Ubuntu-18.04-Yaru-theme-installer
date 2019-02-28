@@ -14,8 +14,8 @@ You can check available version of yaru-theme packages here : [yaru-theme packag
 
 You can set your country in `data/config.sh` in order to have a faster download.
 
-You can change the download platform in `data/config.sh` if you want.
-*NOTE* : the installation script will search for `DOWNLOAD_PLATFORM/packages-names.deb`
+You can change the download platform in `data/config.sh` if you want.  
+*NOTE* : the installation script will search for `DOWNLOAD_PLATFORM/packages-names.deb`  
 Also, if you change the download platform, the country setting may become useless.
 
 
