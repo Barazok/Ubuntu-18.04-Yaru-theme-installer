@@ -20,8 +20,9 @@ gsettings set org.gnome.desktop.interface icon-theme 'Yaru'
 gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
 gsettings set org.gnome.desktop.sound theme-name 'Yaru'
 echo "Removing deb packages..."
-rm yaru-theme-gnome-shell_18.10.6_all.debautosave
+rm yaru-theme-gnome-shell_18.10.6_all.deb
 rm yaru-theme-gtk_18.10.6_all.deb
 rm yaru-theme-icon_18.10.6_all.deb
 rm yaru-theme-sound_18.10.6_all.deb
-echo "A reboot is required to finish the configuration."
+echo "Gnome Shell is restarting... Please wait."
+gnome-shell --replace&
