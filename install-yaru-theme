@@ -6,7 +6,7 @@ wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-gtk_
 wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-icon_$YARU_THEME_VERSION.deb"
 wget "http://cz.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-sound_$YARU_THEME_VERSION.deb"
 echo "Starting yaru-theme packages installation and configuration..."
-sudo apt install ./yaru-theme-gnome-shell_18.10.6_all.deb ./yaru-theme-gtk_18.10.6_all.deb ./yaru-theme-icon_18.10.6_all.deb ./yaru-theme-sound_18.10.6_all.deb
+sudo apt install ./yaru-theme-gnome-shell_$YARU_THEME_VERSION.deb ./yaru-theme-gtk_$YARU_THEME_VERSION.deb ./yaru-theme-icon_$YARU_THEME_VERSION.deb ./yaru-theme-sound_$YARU_THEME_VERSION.deb
 sudo mv /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css.bak
 sudo mv /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css.bak
 sudo mv /usr/share/gnome-shell/modes/ubuntu.json /usr/share/gnome-shell/modes/ubuntu.json.bak
