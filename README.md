@@ -12,6 +12,12 @@ Yaaay ! \o/
 You can change the version number of yaru-theme packages to install in `data/config.sh`.  
 You can check available version of yaru-theme packages here : [yaru-theme packages](http://fr.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/).
 
+You can set your country in `data/config.sh` in order to have a faster download.
+
+You can change the download platform in `data/config.sh` if you want.
+*NOTE* : the installation script will search for `DOWNLOAD_PLATFORM/packages-names.deb`
+Also, if you change the download platform, the country setting may become useless.
+
 ## Installation
 
 ```
