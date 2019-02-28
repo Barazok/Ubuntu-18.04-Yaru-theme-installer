@@ -1,5 +1,6 @@
 #!/bin/bash
 source data/config.sh
+set -e
 echo "Downloading lastest stable release of yaru theme from fr.archive.ubuntu.com..."
 wget "http://fr.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-gnome-shell_$YARU_THEME_VERSION.deb"
 wget "http://fr.archive.ubuntu.com/ubuntu/pool/main/y/yaru-theme/yaru-theme-gtk_$YARU_THEME_VERSION.deb"

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 echo "Rollbacking configurations..."
 sudo rm -rf /usr/share/gnome-shell/theme/ubuntu.css
 sudo rm -rf /usr/share/gnome-shell/theme/ubuntu-high-contrast.css
