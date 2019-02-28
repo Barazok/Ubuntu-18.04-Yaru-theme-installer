@@ -1,0 +1,31 @@
+#!/bin/bash
+source data/function.sh
+source data/config.sh
+set -e
+if [ $# -eq 0 ] ; then __usage ; exit 1 ; fi
+if [ $? != 0 ] ; then exit 1 ; fi
+OPTS=$( getopt -o h,i,r,u,v,e -- "$@" )
+eval set -- "$OPTS"
+while true ; do
+  case "$1" in
+    -h)
+    __usage
+    exit 0;;
+    -i)
+    __install_yaru_theme
+    exit 0;;
+    -r)
+    __uninstall_yaru_theme
+    exit 0;;
+    -u)
+    __update_yaru_theme;
+    exit 0;;
+    -v)
+    __version;
+    exit 0;;
+    -e)
+    __edit_config "data/config.sh";
+    exit 0;;
+  esac
+done
+exit 0
