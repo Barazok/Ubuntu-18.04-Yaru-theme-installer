@@ -47,5 +47,5 @@ It will uninstall the old theme and download / install the new one.
 You just have to set the version you want in `data/config.sh` and run this script.
 
 ```
-././yaru-theme-manager -u
+./yaru-theme-manager -u
 ```
