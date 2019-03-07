@@ -14,6 +14,7 @@ function __install_yaru_theme() {
     fi
     sudo dpkg -i "$MANAGER_PATH/tmp/${package}_${YARU_THEME_VERSION}_all.deb"
   done
+  cd /
   sudo mv /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css.bak
   sudo mv /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css.bak
   sudo mv /usr/share/gnome-shell/modes/ubuntu.json /usr/share/gnome-shell/modes/ubuntu.json.bak
@@ -23,6 +24,8 @@ function __install_yaru_theme() {
   sudo ln -s /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/yaru.css /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css
   sudo ln -s /usr/share/gnome-shell/modes/yaru.json /usr/share/gnome-shell/modes/ubuntu.json
   sudo cp $MANAGER_PATH/data/yaru.css /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/yaru.css
+  sudo ln -s /usr/share/gnome-shell/theme/Yaru/*.svg /usr/share/gnome-shell/theme/
+  cd -
   gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
   gsettings set org.gnome.desktop.interface icon-theme 'Yaru'
   gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
@@ -38,14 +41,10 @@ function __uninstall_yaru_theme() {
     exit 1
   fi
   echo "Rollbacking configurations..."
-  sudo rm -rf /usr/share/gnome-shell/theme/ubuntu.css
-  sudo rm -rf /usr/share/gnome-shell/theme/ubuntu-high-contrast.css
-  sudo rm -rf /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css
-  sudo rm -rf /usr/share/gnome-shell/modes/ubuntu.json
-  sudo mv /usr/share/gnome-shell/theme/ubuntu.css.bak /usr/share/gnome-shell/theme/ubuntu.css
-  sudo mv /usr/share/gnome-shell/theme/ubuntu-high-contrast.css.bak /usr/share/gnome-shell/theme/ubuntu-high-contrast.css
-  sudo mv /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css.bak /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css
-  sudo mv /usr/share/gnome-shell/modes/ubuntu.json.bak /usr/share/gnome-shell/modes/ubuntu.json
+  cd /
+  sudo rm -rf /usr/share/gnome-shell/
+  sudo apt-get install --reinstall gnome-shell gnome-shell-common gnome-shell-extension-ubuntu-dock gnome-shell-extension-appindicator
+  cd -
   gsettings reset org.gnome.desktop.interface cursor-theme
   gsettings reset org.gnome.desktop.interface icon-theme
   gsettings reset org.gnome.desktop.interface gtk-theme
