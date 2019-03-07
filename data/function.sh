@@ -42,8 +42,12 @@ function __uninstall_yaru_theme() {
   fi
   echo "Rollbacking configurations..."
   cd /
-  sudo rm -rf /usr/share/gnome-shell/
-  sudo apt-get install --reinstall gnome-shell gnome-shell-common gnome-shell-extension-ubuntu-dock gnome-shell-extension-appindicator
+  sudo rm -rf /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css
+  sudo rm -rf /usr/share/gnome-shell/modes/ubuntu.json
+  sudo mv /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css.bak /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css
+  sudo mv /usr/share/gnome-shell/modes/ubuntu.json.bak /usr/share/gnome-shell/modes/ubuntu.json
+  sudo rm -rf /usr/share/gnome-shell/theme/
+  sudo apt-get install --reinstall gnome-shell gnome-shell-common
   cd -
   gsettings reset org.gnome.desktop.interface cursor-theme
   gsettings reset org.gnome.desktop.interface icon-theme
