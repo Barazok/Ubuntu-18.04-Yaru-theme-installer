@@ -4,15 +4,15 @@ function __install_yaru_theme() {
     echo "Yaru theme is already installed !"
     exit 1
   fi
-  if [[ ! -d "tmp" ]]; then
-    mkdir tmp
+  if [[ ! -d "$MANAGER_PATH/tmp" ]]; then
+    mkdir $MANAGER_PATH/tmp
   fi
   echo "Starting yaru-theme packages installation and configuration..."
-  for package in `cat data/packages`; do
-    if [[ $(ls tmp/ | grep $package | grep $YARU_THEME_VERSION | wc -l) = 0 ]]; then
-      wget "${DOWNLOAD_PLATFORM}/${package}_${YARU_THEME_VERSION}_all.deb" -P tmp/
+  for package in `cat $MANAGER_PATH/data/packages`; do
+    if [[ $(ls $MANAGER_PATH/tmp/ | grep $package | grep $YARU_THEME_VERSION | wc -l) = 0 ]]; then
+      wget "${DOWNLOAD_PLATFORM}/${package}_${YARU_THEME_VERSION}_all.deb" -P $MANAGER_PATH/tmp/
     fi
-    sudo dpkg -i "tmp/${package}_${YARU_THEME_VERSION}_all.deb"
+    sudo dpkg -i "$MANAGER_PATH/tmp/${package}_${YARU_THEME_VERSION}_all.deb"
   done
   sudo mv /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css.bak
   sudo mv /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css.bak
@@ -22,7 +22,7 @@ function __install_yaru_theme() {
   sudo ln -s /usr/share/gnome-shell/theme/Yaru/gnome-shell-high-contrast.css /usr/share/gnome-shell/theme/ubuntu-high-contrast.css
   sudo ln -s /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/yaru.css /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css
   sudo ln -s /usr/share/gnome-shell/modes/yaru.json /usr/share/gnome-shell/modes/ubuntu.json
-  sudo cp data/yaru.css /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/yaru.css
+  sudo cp $MANAGER_PATH/data/yaru.css /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/yaru.css
   gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
   gsettings set org.gnome.desktop.interface icon-theme 'Yaru'
   gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
@@ -51,7 +51,7 @@ function __uninstall_yaru_theme() {
   gsettings reset org.gnome.desktop.interface gtk-theme
   gsettings reset org.gnome.desktop.sound theme-name
   echo "Removing yaru-theme packages..."
-  for package in `cat data/packages`; do
+  for package in `cat $MANAGER_PATH/data/packages`; do
     sudo dpkg -P $package
   done
   echo "Gnome Shell is restarting... Please wait."

@@ -1,6 +1,8 @@
 #!/bin/bash
-source data/function.sh
-source data/config.sh
+SCRIPT=$(readlink -f $0)
+MANAGER_PATH=`dirname $SCRIPT`
+source $MANAGER_PATH/data/function.sh
+source $MANAGER_PATH/data/config.sh
 set -e
 if [ $# -eq 0 ] ; then __usage ; exit 1 ; fi
 if [ $? != 0 ] ; then exit 1 ; fi
@@ -24,7 +26,7 @@ while true ; do
     __version;
     exit 0;;
     -e)
-    __edit_config "data/config.sh";
+    __edit_config "$MANAGER_PATH/data/config.sh";
     exit 0;;
   esac
 done
