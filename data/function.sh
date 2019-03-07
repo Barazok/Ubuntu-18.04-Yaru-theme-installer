@@ -30,9 +30,7 @@ function __install_yaru_theme() {
   gsettings set org.gnome.desktop.interface icon-theme 'Yaru'
   gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
   gsettings set org.gnome.desktop.sound theme-name 'Yaru'
-  echo "Gnome Shell is restarting... Please wait."
-  sleep 0.1s
-  gnome-shell --replace > /dev/null 2>&1 &
+  echo "A restart is required to finish the installation."
 }
 
 function __uninstall_yaru_theme() {
@@ -57,9 +55,7 @@ function __uninstall_yaru_theme() {
   for package in `cat $MANAGER_PATH/data/packages`; do
     sudo dpkg -P $package
   done
-  echo "Gnome Shell is restarting... Please wait."
-  sleep 0.1s
-  gnome-shell --replace > /dev/null 2>&1 &
+  echo "A restart is required to finish the uninstallation."
 }
 
 function __update_yaru_theme() {
