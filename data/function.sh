@@ -15,6 +15,7 @@ function __install_yaru_theme() {
     sudo dpkg -i "$MANAGER_PATH/tmp/${package}_${YARU_THEME_VERSION}_all.deb"
   done
   cd /
+  sudo rm -rf /usr/share/gnome-shell/theme/*.svg
   sudo mv /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css.bak
   sudo mv /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/stylesheet.css.bak
   sudo mv /usr/share/gnome-shell/modes/ubuntu.json /usr/share/gnome-shell/modes/ubuntu.json.bak
